@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="what-we-do-container">
+    <h1 class="main-title">What We Do</h1>
+    
+    <div class="service-grid">
+        <div class="service-card">
+            <div class="service-icon">🚑</div>
+            <h2>Emergency Rescue</h2>
+            <p>Our dedicated team provides 24/7 emergency rescue services for injured and distressed stray animals. We respond quickly to rescue calls and ensure immediate medical attention.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">💉</div>
+            <h2>Medical Treatment</h2>
+            <p>We provide comprehensive medical care including vaccinations, surgery, and rehabilitation services. Our veterinary team ensures each animal receives the best possible treatment.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🏠</div>
+            <h2>Shelter & Care</h2>
+            <p>We maintain a safe shelter for recovered animals, providing food, warmth, and love until they're ready for adoption or release.</p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">💝</div>
+            <h2>Adoption Program</h2>
+            <p>We facilitate responsible adoptions, ensuring our rescued friends find loving forever homes with caring families.</p>
+        </div>
+    </div>
+
+    <div class="impact-section">
+        <h2>Our Impact</h2>
+        <div class="impact-stats">
+            <div class="stat-box">
+                <span class="stat-number">1,500+</span>
+                <span class="stat-label">Animals Rescued</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">800+</span>
+                <span class="stat-label">Successful Treatments</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Adoptions</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section">
+        <h2>Help Us Make a Difference</h2>
+        <p>Your support helps us continue our mission of rescuing and caring for stray animals.</p>
+        <a href="{% url 'donate' %}" class="donate-button">Make a Donation</a>
+    </div>
+</div>
+
+<style>
+    .what-we-do-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .main-title {
+        text-align: center;
+        color: #FF8A65;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .service-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .service-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .service-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .service-card h2 {
+        color: #FF8A65;
+        margin-bottom: 1rem;
+    }
+
+    .service-card p {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .impact-section {
+        text-align: center;
+        margin: 4rem 0;
+    }
+
+    .impact-section h2 {
+        color: #FF8A65;
+        margin-bottom: 2rem;
+    }
+
+    .impact-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+    }
+
+    .stat-box {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-number {
+        display: block;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #FF8A65;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+        color: #666;
+        font-size: 1.1rem;
+    }
+
+    .cta-section {
+        text-align: center;
+        margin: 4rem 0;
+        padding: 3rem;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .cta-section h2 {
+        color: #FF8A65;
+        margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+        color: #666;
+        margin-bottom: 2rem;
+    }
+
+    .donate-button {
+        display: inline-block;
+        background-color: #FF8A65;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .donate-button:hover {
+        background-color: #FF7043;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 138, 101, 0.3);
+    }
+
+    @media (max-width: 768px) {
+        .what-we-do-container {
+            padding: 1rem;
+        }
+
+        .main-title {
+            font-size: 2rem;
+        }
+
+        .service-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .impact-stats {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}

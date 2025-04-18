@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="donation-container">
+    <div class="donation-card">
+        <h2 class="donation-title">Help a Stray Friend Today</h2>
+        <p class="donation-subtitle">Every contribution makes a difference in their lives ❤️</p>
+
+        <form method="POST" class="donation-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username" class="form-label">USERNAME</label>
+                <div class="input-wrapper">
+                    <input type="text" required class="form-input" id="username" name="username" placeholder="Enter your username">
+                </div>
+                <div class="form-group">
+                    <label for="amount" class="form-label">Donation Amount (₹)</label>
+                    <div class="input-wrapper">
+                        <span class="currency">₹</span>
+                        <input type="number" id="amount" name="amount" min="1" required class="form-input"
+                            placeholder="100">
+                    </div>
+                </div>
+                <button type="submit" class="donate-button">Donate Now</button>
+        </form>
+
+        <div class="impact-stats">
+            <div class="stat-item">
+                <span class="stat-number">1,240+</span>
+                <span class="stat-label">Pets Helped</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">₹82,500+</span>
+                <span class="stat-label">Raised This Year</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Add this to your static/css/style.css */
+    .donation-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 120px);
+        padding: 2rem;
+        background-color: #f5f5f5;
+    }
+
+    .donation-card {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        padding: 2.5rem;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .donation-title {
+        color: #FF8A65;
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .donation-subtitle {
+        color: #666;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+        text-align: left;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #555;
+        font-weight: 500;
+    }
+
+    .input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .currency {
+        position: absolute;
+        left: 12px;
+        color: #777;
+        font-weight: bold;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 12px 12px 12px 32px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s;
+    }
+
+    .form-input:focus {
+        border-color: #FF8A65;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(255, 138, 101, 0.2);
+    }
+
+    .donate-button {
+        background-color: #FF8A65;
+        color: white;
+        border: none;
+        padding: 14px 24px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        transition: all 0.3s;
+        margin-top: 1rem;
+    }
+
+    .donate-button:hover {
+        background-color: #FF7043;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 138, 101, 0.3);
+    }
+
+    .impact-stats {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid #eee;
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-number {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #FF8A65;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        color: #777;
+    }
+
+    @media (max-width: 600px) {
+        .donation-card {
+            padding: 1.5rem;
+        }
+
+        .donation-title {
+            font-size: 1.5rem;
+        }
+    }
+</style>
+{% endblock %}

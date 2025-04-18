@@ -1,0 +1,357 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+  /* Ensure images are of the same size */
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    /* Set a fixed height */
+    overflow: hidden;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensure the image covers the area without stretching */
+  }
+
+  .overlay-text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 1.25rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-text {
+    height: 100px;
+    /* Set a fixed height for the description */
+    overflow: hidden;
+  }
+
+  .card-footer {
+    font-size: 0.875rem;
+    color: #6c757d;
+  }
+
+  .album {
+    padding: 50px 0;
+  }
+</style>
+
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">Support Our Pets, Make a Difference</h1>
+      <br>
+      <p class="lead text-body-secondary">
+        Your generous donations help provide food, shelter, and medical care to the animals in our care. With your
+        support,
+        we can continue rescuing and finding loving homes for pets in need. Every contribution makes a real difference
+        in their lives.
+      </p>
+      <br>
+      <p>
+        <a href="{% url 'donate' %}">
+          <button class="btn btn-primary px-5 py-3 fs-5" type="button"
+            style="background-color: #FF8A65; border-color: #FF8A65;">
+            Donate Now
+          </button>
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="album py-5 bg-body-tertiary">
+  <div class="container">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <!-- Loop through pet items to reduce repetition -->
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="image-container">
+            <img src="{% static 'images/pet1.jpeg' %}" alt="Max the puppy">
+            <div class="overlay-text">Max</div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Max is a playful puppy, full of energy and love. He enjoys playing with toys and
+              forming strong bonds with his new family. Max is looking for a home where he can grow up surrounded by
+              love and care.</p>
+            <div class="card-footer">9 mins ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="image-container">
+            <img src="{% static 'images/pet2.jpg' %}" alt="Whiskers the kitten">
+            <div class="overlay-text">Whiskers</div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Whiskers is a curious kitten, always ready to explore her surroundings. She loves
+              playing with strings and chasing toys. Bella will grow into an affectionate, independent cat with a
+              loving family.</p>
+            <div class="card-footer">9 mins ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="image-container">
+            <img src="{% static 'images/pet3.jpg' %}" alt="Thumper the rabbit">
+            <div class="overlay-text">Thumper</div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Thumper is a sweet and gentle rabbit who loves to hop around and explore. He thrives
+              in a quiet home with plenty of space to roam and would love to become part of a caring family.</p>
+            <div class="card-footer">9 mins ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="image-container">
+            <img src="{% static 'images/pet4.jpeg' %}" alt="Charlie the puppy">
+            <div class="overlay-text">Charlie</div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Charlie is a lovable puppy who loves playing fetch and getting belly rubs. He’s
+              learning to sit and stay, but most of all, he enjoys being around his family and cuddling.</p>
+            <div class="card-footer">9 mins ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="image-container">
+            <img src="{% static 'images/pet5.jpeg' %}" alt="Sunny the parrot">
+            <div class="overlay-text">Sunny</div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Sunny is a vibrant and intelligent parrot who enjoys mimicking sounds and singing.
+              She loves attention and would do well in a home where she gets lots of interaction and stimulation.</p>
+            <div class="card-footer">9 mins ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="image-container">
+            <img src="{% static 'images/pet6.jpg' %}" alt="Gizmo the guinea pig">
+            <div class="overlay-text">Gizmo</div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Gizmo is a friendly guinea pig who loves to snuggle and enjoys a good veggie treat.
+              He’s looking for a loving family to give him plenty of attention and space to explore.</p>
+            <div class="card-footer">9 mins ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="image-container">
+            <img src="{% static 'images/pet7.jpg' %}" alt="Peanut the hamster">
+            <div class="overlay-text">Peanut</div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Peanut is a small, energetic hamster who enjoys running on his wheel. He’s easy to
+              care for and would make the perfect pet for someone looking for a small, low-maintenance companion.</p>
+            <div class="card-footer">9 mins ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="image-container">
+            <img src="{% static 'images/pet8.jpg' %}" alt="Luna the kitten">
+            <div class="overlay-text">Luna</div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Luna is a sweet, social kitten who enjoys snuggling with her human friends. She loves
+              to chase after toys and will grow into a loving, affectionate cat with a little time and care.</p>
+            <div class="card-footer">9 mins ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="image-container">
+            <img src="{% static 'images/pet9.jpg' %}" alt="Shelby the turtle">
+            <div class="overlay-text">Shelby</div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Shelby is a calm and slow-moving turtle who enjoys both land and water. She’s
+              low-maintenance and can be a great pet for someone looking for a long-term companion.</p>
+            <div class="card-footer">9 mins ago</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="image-container">
+            <img src="{% static 'images/pet10.jpg' %}" alt="Pet Image">
+            <div class="overlay-text">Buddy</div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Buddy is a playful and affectionate puppy who loves running around and
+              making new friends. He’s eager to be trained and will be a loyal companion to anyone who
+              gives him love and attention.</p>
+            <div class="d-flex justify-content-between align-items-center">
+
+              <small class="text-body-secondary">9 mins</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="image-container">
+            <img src="{% static 'images/pet11.jpg' %}" alt="Pet Image">
+            <div class="overlay-text">Splash</div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Splash is a colorful and peaceful Gold fish who requires minimal care.
+              He’ll thrive in a small, peaceful tank, adding beauty and tranquility to any room.</p>
+            <div class="d-flex justify-content-between align-items-center">
+
+              <small class="text-body-secondary">9 mins</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="image-container">
+            <img src="{% static 'images/pet12.jpg' %}" alt="Pet Image">
+            <div class="overlay-text">Ziggy</div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Ziggy is an energetic and playful ferret who loves to explore and get
+              into mischief. He’s always up for an adventure and will thrive in a home where he gets
+              plenty of attention.</p>
+            <div class="d-flex justify-content-between align-items-center">
+
+              <small class="text-body-secondary">9 mins</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="image-container">
+            <img src="{% static 'images/pet13.jpeg' %}" alt=" Pet Image">
+            <div class="overlay-text">Slither</div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Slither is a calm, low-maintenance snake who enjoys his quiet habitat.
+              He’s perfect for someone looking for a pet that requires minimal interaction but a
+              proper environment to thrive.</p>
+            <div class="d-flex justify-content-between align-items-center">
+
+              <small class="text-body-secondary">9 mins</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="image-container">
+            <img src="{% static 'images/pet14.jpg' %}" alt="Pet Image">
+            <div class="overlay-text">Mango</div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Mango is a small, cheerful bird who enjoys singing and chirping. He
+              needs a spacious cage and would make a lovely addition to any home that can provide him
+              with plenty of attention.</p>
+            <div class="d-flex justify-content-between align-items-center">
+
+              <small class="text-body-secondary">9 mins</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="image-container">
+            <img src="{% static 'images/pet15.jpg' %}" alt="Pet Image">
+            <div class="overlay-text">Daisy</div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Daisy is an affectionate puppy who loves snuggling and playing with her
+              toys. She’s eager to learn and needs a loving home where she can grow into a
+              well-behaved adult dog.</p>
+            <div class="d-flex justify-content-between align-items-center">
+
+              <small class="text-body-secondary">9 mins</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container px-4 py-5" id="how-you-can-help">
+  <h2 class="pb-2 border-bottom text-center">How You Can Help Our Furry Friends</h2>
+  <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+
+    <div class="col d-flex align-items-start">
+      <div
+        class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 rounded-circle p-3 shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+        </svg>
+      </div>
+      <div>
+        <h3 class="fs-2 text-body-emphasis">Donate to Save a Life</h3>
+        <p>Your donation provides food, medical care, and shelter for animals waiting for a forever home. Every
+          contribution makes a world of difference.</p>
+        <a href="{% url 'donate' %}"><button type="button" class="btn btn-primary"
+            style="background-color: #FF8A65; border-color: #FF8A65;">
+            Donate Now</button>
+        </a>
+      </div>
+    </div>
+
+
+    <div class="col d-flex align-items-start">
+      <div
+        class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 rounded-circle p-3 shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gitlab"
+          viewBox="0 0 16 16">
+          <path
+            d="m15.734 6.1-.022-.058L13.534.358a.57.57 0 0 0-.563-.356.6.6 0 0 0-.328.122.6.6 0 0 0-.193.294l-1.47 4.499H5.025l-1.47-4.5A.572.572 0 0 0 2.47.358L.289 6.04l-.022.057A4.044 4.044 0 0 0 1.61 10.77l.007.006.02.014 3.318 2.485 1.64 1.242 1 .755a.67.67 0 0 0 .814 0l1-.755 1.64-1.242 3.338-2.5.009-.007a4.05 4.05 0 0 0 1.34-4.668Z" />
+        </svg>
+      </div>
+      <div>
+        <h3 class="fs-2 text-body-emphasis">Adopt a Pet Today</h3>
+        <p>Thousands of lovable pets are waiting for a new home. Adoption means giving a pet a second chance at life.
+          Be their hero today!</p>
+        <a href="{% url 'home' %}"><button type="button" class="btn btn-primary"
+            style="background-color: #FF8A65; border-color: #FF8A65;">
+            Find a Pet</button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
